@@ -2,10 +2,12 @@ package com.example.javajokes;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Jokes {
 
     private static final List<String> jokeList = new ArrayList<String>();
+    private static final Random rand = new Random();
 
 
     static{
@@ -21,7 +23,8 @@ public class Jokes {
         return jokeList.size();
     }
 
-    public static String getJoke(int index){
+    public static String getJoke(){
+        int index = rand.nextInt(jokeList.size());
         return jokeList.get(index);
     }
 }

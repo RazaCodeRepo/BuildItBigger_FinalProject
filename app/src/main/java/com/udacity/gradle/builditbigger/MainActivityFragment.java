@@ -18,10 +18,6 @@ import com.google.android.gms.ads.AdView;
  */
 public class MainActivityFragment extends Fragment {
 
-    TextView jokeTextView;
-    Button jokeButton;
-    int jokeIndex = 0;
-
     public MainActivityFragment() {
     }
 
@@ -29,9 +25,6 @@ public class MainActivityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
-
-        jokeTextView = (TextView)root.findViewById(R.id.instructions_text_view);
-        jokeButton = (Button)root.findViewById(R.id.joke_button);
 
         AdView mAdView = (AdView) root.findViewById(R.id.adView);
         // Create an ad request. Check logcat output for the hashed device ID to
@@ -41,18 +34,6 @@ public class MainActivityFragment extends Fragment {
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
         mAdView.loadAd(adRequest);
-
-        jokeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(jokeIndex < Jokes.getJokeListSize()){
-                    jokeTextView.setText(Jokes.getJoke(jokeIndex));
-                } else {
-                    jokeIndex = 0;
-                    jokeTextView.setText(Jokes.getJoke(jokeIndex));
-                }
-            }
-        });
 
         return root;
     }
