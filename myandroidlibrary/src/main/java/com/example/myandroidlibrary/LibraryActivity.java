@@ -17,7 +17,7 @@ public class LibraryActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String jokeExtra = intent.getStringExtra("JOKE");
 
-        jokeTextView = findViewById(R.id.tv_androidlibrary_joke);
+        jokeTextView = (TextView)findViewById(R.id.tv_androidlibrary_joke);
         jokeTextView.setText(jokeExtra);
     }
 }

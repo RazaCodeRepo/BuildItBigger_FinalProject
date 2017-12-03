@@ -44,10 +44,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-
-        Toast.makeText(this, Jokes.getJoke(), Toast.LENGTH_SHORT).show();
+        String joke = Jokes.getJoke();
+        Toast.makeText(this, joke, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, LibraryActivity.class);
-        intent.putExtra("JOKE", Jokes.getJoke());
+        intent.putExtra("JOKE", joke);
+        startActivity(intent);
     }
 
 
