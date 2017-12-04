@@ -20,4 +20,8 @@ public class LibraryActivity extends AppCompatActivity {
         jokeTextView = (TextView)findViewById(R.id.tv_androidlibrary_joke);
         jokeTextView.setText(jokeExtra);
     }
+
+    public void setJokeTextView(String s){
+        jokeTextView.setText(s);
+    }
 }
